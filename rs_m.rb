@@ -1,6 +1,6 @@
 def f1(n)
-    return (n + 1)%256 if n%2 == 0
-    (n - 1)%256
+    return (n + 1) if n%2 == 0
+    (n - 1)
 end
 
 def f0(n)
@@ -9,7 +9,7 @@ end
 
 #f-1
 def f2(n)
-    (f1(n + 1) - 1) % 256
+    (f1(n + 1) - 1)
 end
 
 #parse mage in 4-tuple sets
@@ -38,6 +38,9 @@ end
 
 #lsb inversion random pixels; size_p % of image
 def invert_pixels_rand(images_pixels, size_p)
+    puts images_pixels[150][160]
+
+    images_pixels.map! {|el| el.clone}
     r = Random.new
     size = images_pixels.size.to_f * images_pixels.size.to_f * size_p.to_f * 0.01
     indexes = Array.new 
